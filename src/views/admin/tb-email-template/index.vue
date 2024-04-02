@@ -3,8 +3,8 @@
   <BasicLayout>
     <template #wrapper>
       <el-card class="box-card">
-        <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-          <el-form-item label="" prop="subject"><el-input
+        <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="50%">
+          <el-form-item label="邮件标题" prop="subject"><el-input
             v-model="queryParams.subject"
             placeholder="请输入"
             clearable
@@ -12,7 +12,7 @@
             @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="" prop="context"><el-input
+          <el-form-item label="邮件内容" prop="context"><el-input
             v-model="queryParams.context"
             placeholder="请输入"
             clearable
@@ -20,7 +20,7 @@
             @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="" prop="address"><el-input
+          <el-form-item label="收件箱" prop="address"><el-input
             v-model="queryParams.address"
             placeholder="请输入"
             clearable
@@ -72,17 +72,17 @@
 
         <el-table v-loading="loading" :data="emailTemplateList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center" /><el-table-column
-            label=""
+            label="邮件标题"
             align="center"
             prop="subject"
             :show-overflow-tooltip="true"
           /><el-table-column
-            label=""
+            label="邮件内容"
             align="center"
             prop="context"
             :show-overflow-tooltip="true"
           /><el-table-column
-            label=""
+            label="收件箱"
             align="center"
             prop="address"
             :show-overflow-tooltip="true"
@@ -135,19 +135,19 @@
         <el-dialog :title="title" :visible.sync="open" width="500px">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
 
-            <el-form-item label="" prop="subject">
+            <el-form-item label="邮件标题" prop="subject">
               <el-input
                 v-model="form.subject"
                 placeholder=""
               />
             </el-form-item>
-            <el-form-item label="" prop="context">
+            <el-form-item label="邮件内容" prop="context">
               <el-input
                 v-model="form.context"
                 placeholder=""
               />
             </el-form-item>
-            <el-form-item label="" prop="address">
+            <el-form-item label="邮箱地址" prop="address">
               <el-input
                 v-model="form.address"
                 placeholder=""
@@ -278,8 +278,7 @@ export default {
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset()
-      const id =
-                row.id || this.ids
+      const id = row.id || this.ids
       getEmailTemplate(id).then(response => {
         this.form = response.data
         this.open = true

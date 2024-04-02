@@ -5,16 +5,16 @@
     <template #wrapper>
       <el-card class="box-card">
         <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-          <el-form-item label="" prop="email"><el-input v-model="queryParams.email" placeholder="请输入" clearable
-                                                        size="small" @keyup.enter.native="handleQuery"
+          <el-form-item label="邮箱" prop="email"><el-input v-model="queryParams.email" placeholder="请输入" clearable
+                                                          size="small" @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="" prop="name"><el-input v-model="queryParams.name" placeholder="请输入" clearable
-                                                       size="small" @keyup.enter.native="handleQuery"
+          <el-form-item label="姓名" prop="name"><el-input v-model="queryParams.name" placeholder="请输入" clearable
+                                                         size="small" @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="" prop="amazonID"><el-input v-model="queryParams.amazonID" placeholder="请输入" clearable
-                                                           size="small" @keyup.enter.native="handleQuery"
+          <el-form-item label="Amazon Order ID" prop="amazonID"><el-input v-model="queryParams.amazonID" placeholder="请输入" clearable
+                                                                          size="small" @keyup.enter.native="handleQuery"
           />
           </el-form-item>
 
@@ -61,9 +61,9 @@
 
         <el-table v-loading="loading" :data="customerList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center" />
-          <el-table-column label="" align="center" prop="email" :show-overflow-tooltip="true" />
-          <el-table-column label="" align="center" prop="name" :show-overflow-tooltip="true" />
-          <el-table-column label="" align="center" prop="amazonID" :show-overflow-tooltip="true" />
+          <el-table-column label="Email" align="center" prop="email" :show-overflow-tooltip="true" />
+          <el-table-column label="Name" align="center" prop="name" :show-overflow-tooltip="true" />
+          <el-table-column label="Amazon Order ID" align="center" prop="amazonID" :show-overflow-tooltip="true" />
           <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
             <template slot-scope="scope">
               <el-popconfirm
@@ -112,13 +112,13 @@
         <el-dialog :title="title" :visible.sync="open" width="500px">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
 
-            <el-form-item label="" prop="email">
+            <el-form-item label="Email" prop="email">
               <el-input v-model="form.email" placeholder="" />
             </el-form-item>
-            <el-form-item label="" prop="name">
+            <el-form-item label="Name" prop="name">
               <el-input v-model="form.name" placeholder="" />
             </el-form-item>
-            <el-form-item label="" prop="amazonID">
+            <el-form-item label="Amazon Order ID" prop="amazonID">
               <el-input v-model="form.amazonID" placeholder="" />
             </el-form-item>
           </el-form>

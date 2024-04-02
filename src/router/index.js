@@ -96,6 +96,11 @@ export const constantRoutes = [
         meta: { title: '个人中心', icon: 'user', noCache: true }
       }
     ]
+  },
+  {
+    path: '/contract',
+    component: () => import('@/views/contract/index'),
+    hidden: true
   }
 ]
 
