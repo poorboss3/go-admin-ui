@@ -2,18 +2,18 @@
 
 <template>
   <div class="form-container">
-    <form @submit.prevent="submitForm">
+    <el-form ref="form" :model="form" :rules="rules">
       <label for="name">姓名:</label>
       <input id="name" v-model="form.name" type="text" placeholder="Please input your name" required>
-
+      <br>
       <label for="email">邮箱:</label>
       <input id="email" v-model="form.email" type="email" placeholder="Please input your email" required>
-
+      <br>
       <label for="id">Amazon Order ID:</label>
       <input id="id" v-model="form.amazonID" type="text" placeholder="Please input your Amazon Order ID" required>
-
-      <button type="submit">提交</button>
-    </form>
+      <br>
+      <el-button type="primary" @click="submitForm">确 定</el-button>
+    </el-form>
   </div>
 </template>
 
@@ -54,7 +54,6 @@ export default {
     },
     /** 提交按钮 */
     submitForm: function() {
-      this.sendEmail()
       this.$refs['form'].validate(valid => {
         if (valid) {
           addCustomer(this.form).then(response => {
@@ -68,6 +67,7 @@ export default {
           })
         }
       })
+      this.sendEmail()
     }
   }
 }

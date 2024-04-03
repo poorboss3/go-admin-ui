@@ -100,7 +100,8 @@ export const constantRoutes = [
   {
     path: '/contract',
     component: () => import('@/views/contract/index'),
-    hidden: true
+    hidden: true,
+    meta: { title: 'Welcome' }
   }
 ]
 
