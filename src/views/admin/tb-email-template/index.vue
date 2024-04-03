@@ -36,7 +36,7 @@
         </el-form>
 
         <el-row :gutter="10" class="mb8">
-          <el-col :span="1.5">
+          <!-- <el-col :span="1.5">
             <el-button
               v-permisaction="['admin:emailTemplate:add']"
               type="primary"
@@ -45,7 +45,7 @@
               @click="handleAdd"
             >新增
             </el-button>
-          </el-col>
+          </el-col> -->
           <el-col :span="1.5">
             <el-button
               v-permisaction="['admin:emailTemplate:edit']"
@@ -57,7 +57,7 @@
             >修改
             </el-button>
           </el-col>
-          <el-col :span="1.5">
+          <!-- <el-col :span="1.5">
             <el-button
               v-permisaction="['admin:emailTemplate:remove']"
               type="danger"
@@ -67,7 +67,7 @@
               @click="handleDelete"
             >删除
             </el-button>
-          </el-col>
+          </el-col> -->
         </el-row>
 
         <el-table v-loading="loading" :data="emailTemplateList" @selection-change="handleSelectionChange">
@@ -104,7 +104,7 @@
                 >修改
                 </el-button>
               </el-popconfirm>
-              <el-popconfirm
+              <!-- <el-popconfirm
                 class="delete-popconfirm"
                 title="确认要删除吗?"
                 confirm-button-text="删除"
@@ -118,7 +118,7 @@
                   icon="el-icon-delete"
                 >删除
                 </el-button>
-              </el-popconfirm>
+              </el-popconfirm> -->
             </template>
           </el-table-column>
         </el-table>
@@ -132,7 +132,7 @@
         />
 
         <!-- 添加或修改对话框 -->
-        <el-dialog :title="title" :visible.sync="open" width="500px">
+        <el-dialog :title="title" :visible.sync="open" width="800px">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
 
             <el-form-item label="邮件标题" prop="subject">
@@ -145,6 +145,8 @@
               <el-input
                 v-model="form.context"
                 placeholder=""
+                type="textarea"
+                rows="5"
               />
             </el-form-item>
             <el-form-item label="邮箱地址" prop="address">
