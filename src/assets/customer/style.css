@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* .admin {
+    width: 100vw;
+    height: 100vh;
+} */
+
+.top {
+    width: 100vw;
+    height: 45vh;
+    margin: auto;
+    /* background-color: aqua; */
+}
+
+.logo {
+    width: 120px;
+    height: 40px;
+    margin: 10px 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: aqua;
+}
+
+.images img {
+    width: 220px;
+    /* height: 120px; */
+    /* margin: 5vh 0; */
+    margin-left: 50%;
+    transform: translateX(-50%);
+    /* background-color: aqua; */
+    /* border-radius: 10px;
+    box-shadow: 1px 3px 5px 1px rgb(102, 102, 102); */
+}
+
+.main {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+.main .text01 {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(230, 74, 219);
+    margin-bottom: 10px;
+}
+
+.main .text02 {
+    font-size: 10px;
+}
+
+.text03 {
+    font-size: 12px;
+    width: 100vw;
+    height: 30px;
+    line-height: 30px;
+    color: aliceblue;
+    background-color: rgb(230, 74, 219);
+    text-align: center;
+    margin-top: 5px;
+}
+
+.foot .sign {
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 55vh;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    background-color: black;
+    /* border-radius: 40px 40px 0px 0px; */
+}
+
+.foot .sign p {
+    color: rgb(183, 241, 9);
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.foot .sign input {
+    display: block;
+    width: 260px;
+    height: 25px;
+    margin: 10px 0px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+    padding-left: 10px;
+    transform: translateX(-50%);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.foot .sign .name {
+    margin-top: 10px;
+}
+
+.foot .sign div {
+    color: rgb(183, 241, 9);
+    font-size: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    /* position: relative;
+    left: -20px; */
+}
+
+.foot .sign div span {
+    color: rgb(230, 74, 219);
+    margin-right: 5px;
+}
+
+.foot .sign .id {
+    /* position: relative;
+    left: -20px; */
+    color: rgb(183, 241, 9);
+    font-size: 12px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.foot .sign .number {
+    margin-bottom: 2px;
+}
+
+.foot .sign .find {
+    color: rgb(183, 241, 9);
+    font-size: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.foot .sign div .el-button span {
+    margin-top: 20px;
+    border: 0px;
+    background-color: aliceblue;
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+}
