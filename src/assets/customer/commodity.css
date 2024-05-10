@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 400px;
+    height: 100vh;
+    /* background-color: aqua; */
+    margin: auto;
+}
+
+.box .top {
+    width: 400px;
+    height: 80px;
+    padding: 15px 0px;
+    /* text-align: center; */
+    background-color: rgb(0, 28, 53);
+}
+
+.box .top p {
+    line-height: 20px;
+    margin-left: 20px;
+    color: rgb(148, 189, 0);
+}
+
+.box .title-1 {
+    margin: 10px 0px;
+}
+
+.box .title-2 {
+    margin: 10px 0px;
+}
+
+.box .commodity {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box .commodity .img img {
+    width: 200px;
+    height: 150px;
+}
+
+.box .commodity .particulars .describe {
+    vertical-align: middle;
+}
+
+.box .foot .sign input {
+    display: block;
+    width: 260px;
+    height: 25px;
+    margin: 10px 0px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+    padding-left: 10px;
+    transform: translateX(-50%);
+    border: 1px solid rgb(86, 86, 86);
+    border-radius: 5px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.box .foot .sign textarea {
+    display: block;
+    width: 260px;
+    margin: 10px 0px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+    padding-left: 10px;
+    transform: translateX(-50%);
+    border: 1px solid rgb(86, 86, 86);
+    border-radius: 5px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.box .flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 280px;
+    /* background-color: aqua; */
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.box .flex .flex-box {
+    display: inline;
+    width: 110px;
+    margin: 15px;
+}
+
+.box .flex .flex-box .input2 {
+    width: 110px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.box .foot .sign {
+    width: 260px;
+    margin-left: 50%;
+    padding-left: 10px;
+    transform: translateX(-50%);
+}
+
+.box .foot .sign div span {
+    color: red;
+    margin-right: 5px;
+}
+
+.submitbt {
+    height: 25px;
+    border: 0px;
+    border-radius: 12px;
+    background-color: rgb(0, 28, 53);
+    color: rgb(148, 189, 0);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.box .foot .sign p {
+    height: 20px;
+}

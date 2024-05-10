@@ -1,26 +1,59 @@
-<!-- eslint-disable vue/max-attributes-per-line -->
-
 <template>
   <BasicLayout>
     <template #wrapper>
       <el-card class="box-card">
-        <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-          <el-form-item label="邮箱" prop="email"><el-input v-model="queryParams.email" placeholder="请输入" clearable
-                                                          size="small" @keyup.enter.native="handleQuery"
+        <el-form
+          ref="queryForm"
+          :model="queryParams"
+          :inline="true"
+          label-width="68px"
+        >
+          <el-form-item
+            label="Email"
+            prop="email"
+          ><el-input
+            v-model="queryParams.email"
+            placeholder="请输入"
+            clearable
+            size="small"
+            @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="姓名" prop="name"><el-input v-model="queryParams.name" placeholder="请输入" clearable
-                                                         size="small" @keyup.enter.native="handleQuery"
+          <el-form-item
+            label="Name"
+            prop="name"
+          ><el-input
+            v-model="queryParams.name"
+            placeholder="请输入"
+            clearable
+            size="small"
+            @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="Amazon Order ID" prop="amazonID"><el-input v-model="queryParams.amazonID" placeholder="请输入" clearable
-                                                                          size="small" @keyup.enter.native="handleQuery"
+          <el-form-item
+            label="Amazon Order ID"
+            prop="amazonID"
+          ><el-input
+            v-model="queryParams.amazonID"
+            placeholder="请输入"
+            clearable
+            size="small"
+            @keyup.enter.native="handleQuery"
           />
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+            <el-button
+              type="primary"
+              icon="el-icon-search"
+              size="mini"
+              @click="handleQuery"
+            >搜索</el-button>
+            <el-button
+              icon="el-icon-refresh"
+              size="mini"
+              @click="resetQuery"
+            >重置</el-button>
           </el-form-item>
         </el-form>
 
@@ -59,12 +92,71 @@
           </el-col>
         </el-row>
 
-        <el-table v-loading="loading" :data="customerList" @selection-change="handleSelectionChange">
-          <el-table-column type="selection" width="55" align="center" />
-          <el-table-column label="Email" align="center" prop="email" :show-overflow-tooltip="true" />
-          <el-table-column label="Name" align="center" prop="name" :show-overflow-tooltip="true" />
-          <el-table-column label="Amazon Order ID" align="center" prop="amazonID" :show-overflow-tooltip="true" />
-          <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+        <el-table
+          v-loading="loading"
+          :data="customerList"
+          @selection-change="handleSelectionChange"
+        >
+          <el-table-column
+            type="selection"
+            width="55"
+            align="center"
+          /><el-table-column
+            label="Email"
+            align="center"
+            prop="email"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Name"
+            align="center"
+            prop="name"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Amazon Order ID"
+            align="center"
+            prop="amazonID"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Phone Number"
+            align="center"
+            prop="phoneNumber"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Address1"
+            align="center"
+            prop="address1"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Address2"
+            align="center"
+            prop="address2"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="City"
+            align="center"
+            prop="city"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="State"
+            align="center"
+            prop="state"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Zip Code"
+            align="center"
+            prop="zipCode"
+            :show-overflow-tooltip="true"
+          /><el-table-column
+            label="Country"
+            align="center"
+            prop="country"
+            :show-overflow-tooltip="true"
+          />
+          <el-table-column
+            label="操作"
+            align="center"
+            class-name="small-padding fixed-width"
+          >
             <template slot-scope="scope">
               <el-popconfirm
                 class="delete-popconfirm"
@@ -101,7 +193,7 @@
         </el-table>
 
         <pagination
-          v-show="total>0"
+          v-show="total > 0"
           :total="total"
           :page.sync="queryParams.pageIndex"
           :limit.sync="queryParams.pageSize"
@@ -111,7 +203,6 @@
         <!-- 添加或修改对话框 -->
         <el-dialog :title="title" :visible.sync="open" width="500px">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-
             <el-form-item label="Email" prop="email">
               <el-input v-model="form.email" placeholder="" />
             </el-form-item>
@@ -120,6 +211,27 @@
             </el-form-item>
             <el-form-item label="Amazon Order ID" prop="amazonID">
               <el-input v-model="form.amazonID" placeholder="" />
+            </el-form-item>
+            <el-form-item label="Phone Number" prop="phoneNumber">
+              <el-input v-model="form.phoneNumber" placeholder="" />
+            </el-form-item>
+            <el-form-item label="Address1" prop="address1">
+              <el-input v-model="form.address1" placeholder="" />
+            </el-form-item>
+            <el-form-item label="Address2" prop="address2">
+              <el-input v-model="form.address2" placeholder="" />
+            </el-form-item>
+            <el-form-item label="City" prop="city">
+              <el-input v-model="form.city" placeholder="" />
+            </el-form-item>
+            <el-form-item label="State" prop="state">
+              <el-input v-model="form.state" placeholder="" />
+            </el-form-item>
+            <el-form-item label="Zip Code" prop="zipCode">
+              <el-input v-model="form.zipCode" placeholder="" />
+            </el-form-item>
+            <el-form-item label="Country" prop="country">
+              <el-input v-model="form.country" placeholder="" />
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
@@ -133,12 +245,16 @@
 </template>
 
 <script>
-import { addCustomer, delCustomer, getCustomer, listCustomer, updateCustomer } from '@/api/admin/tb-customer'
-
+import {
+  addCustomer,
+  delCustomer,
+  getCustomer,
+  listCustomer,
+  updateCustomer
+} from '@/api/admin/tb-customer'
 export default {
   name: 'Customer',
-  components: {
-  },
+  components: {},
   data() {
     return {
       // 遮罩层
@@ -159,9 +275,7 @@ export default {
       // 类型数据字典
       typeOptions: [],
       customerList: [],
-
       // 关系表类型
-
       // 查询参数
       queryParams: {
         pageIndex: 1,
@@ -171,10 +285,10 @@ export default {
         amazonID: undefined
       },
       // 表单参数
-      form: {
-      },
+      form: {},
       // 表单校验
-      rules: { email: [{ required: true, message: '不能为空', trigger: 'blur' }],
+      rules: {
+        email: [{ required: true, message: '不能为空', trigger: 'blur' }],
         name: [{ required: true, message: '不能为空', trigger: 'blur' }],
         amazonID: [{ required: true, message: '不能为空', trigger: 'blur' }]
       }
@@ -187,11 +301,12 @@ export default {
     /** 查询参数列表 */
     getList() {
       this.loading = true
-      listCustomer(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
-        this.customerList = response.data.list
-        this.total = response.data.count
-        this.loading = false
-      }
+      listCustomer(this.addDateRange(this.queryParams, this.dateRange)).then(
+        (response) => {
+          this.customerList = response.data.list
+          this.total = response.data.count
+          this.loading = false
+        }
       )
     },
     // 取消按钮
@@ -202,16 +317,23 @@ export default {
     // 表单重置
     reset() {
       this.form = {
-
         id: undefined,
         email: undefined,
         name: undefined,
-        amazonID: undefined
+        amazonID: undefined,
+        phoneNumber: undefined,
+        address1: undefined,
+        address2: undefined,
+        city: undefined,
+        state: undefined,
+        zipCode: undefined,
+        country: undefined
       }
       this.resetForm('form')
     },
     getImgList: function() {
-      this.form[this.fileIndex] = this.$refs['fileChoose'].resultList[0].fullUrl
+      this.form[this.fileIndex] =
+        this.$refs['fileChoose'].resultList[0].fullUrl
     },
     fileClose: function() {
       this.fileOpen = false
@@ -238,16 +360,15 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.id)
+      this.ids = selection.map((item) => item.id)
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset()
-      const id =
-                row.id || this.ids
-      getCustomer(id).then(response => {
+      const id = row.id || this.ids
+      getCustomer(id).then((response) => {
         this.form = response.data
         this.open = true
         this.title = '修改Customer'
@@ -256,10 +377,10 @@ export default {
     },
     /** 提交按钮 */
     submitForm: function() {
-      this.$refs['form'].validate(valid => {
+      this.$refs['form'].validate((valid) => {
         if (valid) {
           if (this.form.id !== undefined) {
-            updateCustomer(this.form).then(response => {
+            updateCustomer(this.form).then((response) => {
               if (response.code === 200) {
                 this.msgSuccess(response.msg)
                 this.open = false
@@ -269,7 +390,7 @@ export default {
               }
             })
           } else {
-            addCustomer(this.form).then(response => {
+            addCustomer(this.form).then((response) => {
               if (response.code === 200) {
                 this.msgSuccess(response.msg)
                 this.open = false
@@ -290,18 +411,20 @@ export default {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
-      }).then(function() {
-        return delCustomer({ 'ids': Ids })
-      }).then((response) => {
-        if (response.code === 200) {
-          this.msgSuccess(response.msg)
-          this.open = false
-          this.getList()
-        } else {
-          this.msgError(response.msg)
-        }
-      }).catch(function() {
       })
+        .then(function() {
+          return delCustomer({ ids: Ids })
+        })
+        .then((response) => {
+          if (response.code === 200) {
+            this.msgSuccess(response.msg)
+            this.open = false
+            this.getList()
+          } else {
+            this.msgError(response.msg)
+          }
+        })
+        .catch(function() {})
     }
   }
 }
